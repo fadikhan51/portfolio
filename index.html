@@ -190,6 +190,30 @@
         <defs>
           <radialGradient id="cga-4" cx="50%" cy="34%" r="72%">
             <stop offset="0%" stop-color="#ffffff" />
+            <stop offset="55%" stop-color="#eff9dd" />
+            <stop offset="100%" stop-color="#c9e894" />
+          </radialGradient>
+          <filter id="cba-4" x="-35%" y="-35%" width="170%" height="170%">
+            <feGaussianBlur stdDeviation="10" />
+          </filter>
+        </defs>
+        <g filter="url(#cba-4)" fill="url(#cga-4)">
+          <ellipse cx="170" cy="118" rx="128" ry="30" />
+          <circle cx="100" cy="94" r="34" />
+          <circle cx="156" cy="70" r="50" />
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 1. FIXED TOP SYSTEM RULER -->
+  <div class="fixed inset-x-0 top-0 z-50 flex h-7 items-stretch border-b border-[#e9e6df] bg-white/85 backdrop-blur-xl font-mono text-[9px]">
+    <a href="#hero" class="flex shrink-0 items-center gap-2 border-r border-[#e9e6df] px-3 font-semibold">
+      <span class="grid size-4 place-items-center rounded-[4px] bg-[#ff595e] text-[9px] font-bold text-white">F</span>
+      <span class="hidden sm:block tracking-widest text-[#16110e] dark:text-white">FAHAD.DEV</span>
+    </a>
+
+    <div class="relative min-w-0 flex-1 overflow-hidden">
 </body>
 </html>
-<!-- Build milestone 13/88: feat: add availability status badge and animated live radar dot -->
+<!-- Build milestone 14/88: feat: add hero action buttons for project scope and contact -->
