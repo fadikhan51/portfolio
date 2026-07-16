@@ -214,6 +214,30 @@
     </a>
 
     <div class="relative min-w-0 flex-1 overflow-hidden">
+      <div id="ruler-progress" class="absolute inset-y-0 left-0 bg-[#ff595e]/15 transition-all duration-75" style="width: 0%"></div>
+      <div aria-hidden="true" class="absolute inset-0 hidden sm:flex justify-between items-end px-4 text-[#9c958d]">
+        <span>100</span><span>200</span><span>300</span><span>400</span><span>500</span><span>600</span><span>700</span><span>800</span><span>900</span><span>1000</span><span>1100</span><span>1200</span>
+      </div>
+      <span id="scroll-pill" class="absolute top-1/2 -translate-y-1/2 rounded-[4px] bg-[#ff595e] px-1.5 py-0.5 text-white font-bold transition-all duration-75" style="left: 0%">0%</span>
+    </div>
+
+    <div class="flex shrink-0 items-center gap-2 border-l border-[#e9e6df] px-3">
+      <i class="size-1.5 animate-blink rounded-full bg-[#10b981]"></i>
+      <span class="font-bold text-[#16110e] dark:text-white">LIVE</span>
+      <span class="hidden sm:block text-[#9c958d]">· AVAILABLE FOR SYSTEMS</span>
+    </div>
+  </div>
+
+  <!-- 2. FLOATING PILL NAVIGATION -->
+  <div class="fixed inset-x-0 top-7 z-40 px-3 pt-3 sm:px-5 sm:pt-4">
+    <div class="mx-auto max-w-[1400px]">
+      <div class="flex items-center justify-between">
+        
+        <div class="hidden shrink-0 items-center gap-2 rounded-full bg-white/90 dark:bg-[#12161f]/90 px-4 py-2 shadow-[0_2px_14px_-6px_#14131033] border border-[#e9e6df] dark:border-white/15 backdrop-blur lg:flex">
+          <span class="relative flex size-2">
+            <span class="absolute inline-flex size-full animate-ping rounded-full bg-[#10b981] opacity-60"></span>
+            <span class="relative inline-flex size-2 rounded-full bg-[#10b981]"></span>
+          </span>
 </body>
 </html>
-<!-- Build milestone 14/88: feat: add hero action buttons for project scope and contact -->
+<!-- Build milestone 15/88: feat: scaffold sticky top navigation bar with blur backdrop -->
