@@ -1608,6 +1608,30 @@
         "#ff4d8d", // T (neon pink)
         "#06d6a0", // . (emerald mint)
         "#1982c4", // I (ocean blue)
+        "#f72585", // ' (bright magenta)
+        "#48bfe3", // L (cyan)
+        "#e76f51", // L (warm coral)
+        "#9d4edd", // B (royal violet)
+        "#ff595e", // U (coral red)
+        "#0d99ff", // I (sky blue)
+        "#8ac926", // L (electric lime)
+        "#7b2cbf", // D (deep purple)
+        "#ff924c", // I (tangerine orange)
+        "#ffca3a", // T (warm gold)
+        "#ff4d8d"  // . (neon pink)
+      ];
+
+      let width = 0;
+      let height = 0;
+      let particles = [];
+      let animId = null;
+      let mouse = { x: -9999, y: -9999 };
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const rect = container.getBoundingClientRect();
+        width = Math.max(1, Math.floor(rect.width));
+        height = Math.max(1, Math.floor(rect.height));
 </body>
 </html>
-<!-- Build milestone 72/88: style: adjust work section highlight banner for dark mode -->
+<!-- Build milestone 73/88: feat: implement theme toggling script with localStorage persistence -->
