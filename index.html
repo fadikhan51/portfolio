@@ -1632,6 +1632,30 @@
         const rect = container.getBoundingClientRect();
         width = Math.max(1, Math.floor(rect.width));
         height = Math.max(1, Math.floor(rect.height));
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function sampleText() {
+        const offCanvas = document.createElement('canvas');
+        offCanvas.width = width;
+        offCanvas.height = height;
+        const offCtx = offCanvas.getContext('2d');
+        if (!offCtx) return false;
+
+        // Baseline test measurement
+        offCtx.font = '900 100px Anton, sans-serif';
+        let maxLineWidth = 1;
+        for (const line of lines) {
+          maxLineWidth = Math.max(maxLineWidth, offCtx.measureText(line).width);
+        }
+
+        // Substantially larger font scaling to command the hero section
+        const widthBound = (width * 0.95 / maxLineWidth) * 100;
+        const heightBound = height / (lines.length * 0.86 + 0.12);
 </body>
 </html>
-<!-- Build milestone 73/88: feat: implement theme toggling script with localStorage persistence -->
+<!-- Build milestone 74/88: feat: enforce strict Light Mode as default on first visit -->
