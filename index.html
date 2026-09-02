@@ -1704,6 +1704,30 @@
               const imgData = offCtx.getImageData(minX, minY, scanW, maxY - minY).data;
 
               for (let py = minY; py < maxY; py += step) {
+                for (let px = minX; px < maxX; px += step) {
+                  const subX = Math.floor(px - minX);
+                  const subY = Math.floor(py - minY);
+                  const idx = (subY * scanW + subX) * 4;
+                  const alpha = imgData[idx + 3];
+
+                  if (alpha > 85) {
+                    newParticles.push({
+                      x: px + (Math.random() - 0.5) * 22,
+                      y: py + (Math.random() - 0.5) * 22,
+                      tx: px,
+                      ty: py,
+                      vx: 0,
+                      vy: 0,
+                      radius: ballRadius,
+                      color: charColor
+                    });
+                  }
+                }
+              }
+            }
+          }
+        });
+
 </body>
 </html>
-<!-- Build milestone 76/88: style: apply pill switcher styling and smooth hover scale to floating toggle -->
+<!-- Build milestone 77/88: feat: add animated Sun and Moon SVG icons with theme toggle sync -->
