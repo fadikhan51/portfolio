@@ -1680,6 +1680,30 @@
 
           for (let c = 0; c < line.length; c++) {
             const char = line[c];
+            if (char === ' ') continue;
+
+            const charColor = letterPalette[globalCharIdx % letterPalette.length];
+            globalCharIdx++;
+
+            const charX = lineX + offCtx.measureText(line.slice(0, c)).width;
+            const charMetrics = offCtx.measureText(char);
+            const charWidth = charMetrics.width;
+
+            // Render single letter onto clean offscreen buffer
+            offCtx.clearRect(0, 0, width, height);
+            offCtx.fillStyle = '#000000';
+            offCtx.fillText(char, charX, lineY);
+
+            const minX = Math.max(0, Math.floor(charX - 2));
+            const maxX = Math.min(width, Math.ceil(charX + charWidth + 2));
+            const minY = Math.max(0, Math.floor(lineY - fontSize * 0.86));
+            const maxY = Math.min(height, Math.ceil(lineY + fontSize * 0.26));
+            const scanW = maxX - minX;
+
+            if (scanW > 0 && maxY > minY) {
+              const imgData = offCtx.getImageData(minX, minY, scanW, maxY - minY).data;
+
+              for (let py = minY; py < maxY; py += step) {
 </body>
 </html>
-<!-- Build milestone 75/88: feat: implement floating theme switcher button at bottom right -->
+<!-- Build milestone 76/88: style: apply pill switcher styling and smooth hover scale to floating toggle -->
