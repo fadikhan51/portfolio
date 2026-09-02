@@ -1656,6 +1656,30 @@
         // Substantially larger font scaling to command the hero section
         const widthBound = (width * 0.95 / maxLineWidth) * 100;
         const heightBound = height / (lines.length * 0.86 + 0.12);
+        const fontSize = Math.floor(Math.min(widthBound, heightBound));
+
+        offCtx.font = '900 ' + fontSize + 'px Anton, sans-serif';
+        offCtx.textBaseline = 'alphabetic';
+        offCtx.textAlign = 'left';
+
+        const lineHeight = fontSize * 0.88;
+        const totalBlockHeight = (lines.length - 1) * lineHeight + fontSize * 0.76;
+        const startY = (height - totalBlockHeight) / 2 + fontSize * 0.74;
+
+        const newParticles = [];
+        // Adaptive ball size and grid step for crisp, dense ball rendering
+        const step = Math.max(3.2, Math.min(4.6, fontSize / 34));
+        const ballRadius = Math.max(2.1, Math.min(3.2, fontSize / 48));
+
+        let globalCharIdx = 0;
+
+        lines.forEach((line, lineIdx) => {
+          const lineY = startY + lineIdx * lineHeight;
+          const lineWidth = offCtx.measureText(line).width;
+          const lineX = (width - lineWidth) / 2;
+
+          for (let c = 0; c < line.length; c++) {
+            const char = line[c];
 </body>
 </html>
-<!-- Build milestone 74/88: feat: enforce strict Light Mode as default on first visit -->
+<!-- Build milestone 75/88: feat: implement floating theme switcher button at bottom right -->
