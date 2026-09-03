@@ -1728,6 +1728,30 @@
           }
         });
 
+        if (newParticles.length < 50) return false;
+        particles = newParticles;
+        textHeading.style.opacity = '0';
+        return true;
+      }
+
+      function loop() {
+        ctx.clearRect(0, 0, width, height);
+
+        const repelRadius = 105;
+        const repelRadiusSq = repelRadius * repelRadius;
+        const spring = 0.025;
+        const damping = 0.87;
+        const gravity = 0.12;
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const distSq = dx * dx + dy * dy;
+
+          if (distSq < repelRadiusSq && distSq > 0) {
+            const dist = Math.sqrt(distSq);
 </body>
 </html>
-<!-- Build milestone 77/88: feat: add animated Sun and Moon SVG icons with theme toggle sync -->
+<!-- Build milestone 78/88: fix: adjust mobile portrait crop using aspect ratio and center focus -->
