@@ -1752,6 +1752,30 @@
 
           if (distSq < repelRadiusSq && distSq > 0) {
             const dist = Math.sqrt(distSq);
+            // Repulsive force creates hollow circular void centered on cursor
+            const force = ((repelRadius - dist) / repelRadius) * 5.4;
+            const angle = Math.atan2(dy, dx);
+            p.vx += Math.cos(angle) * force;
+            p.vy += Math.sin(angle) * force;
+            // Gravity pulls displaced balls downward
+            p.vy += gravity * 2.2;
+          }
+
+          // Elastic spring pulling balls back into their exact letter positions
+          const fx = (p.tx - p.x) * spring;
+          const fy = (p.ty - p.y) * spring;
+
+          p.vx = (p.vx + fx) * damping;
+          p.vy = (p.vy + fy) * damping;
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Render each particle as a smooth circular ball
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
 </body>
 </html>
-<!-- Build milestone 78/88: fix: adjust mobile portrait crop using aspect ratio and center focus -->
+<!-- Build milestone 79/88: perf: optimize canvas particle collision loops and mobile density -->
