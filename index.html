@@ -1824,6 +1824,30 @@
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
         initHeroParticleCanvas();
+        updateThemeIcons();
+      });
+    } else {
+      initHeroParticleCanvas();
+      updateThemeIcons();
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      try {
+        localStorage.setItem('fahad_theme', isDark ? 'dark' : 'light');
+      } catch(e) {}
+      updateThemeIcons();
+    }
+
+    function updateThemeIcons() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const suns = document.querySelectorAll('.theme-icon-sun');
+      const moons = document.querySelectorAll('.theme-icon-moon');
+      suns.forEach(s => s.classList.toggle('hidden', !isDark));
+      moons.forEach(m => m.classList.toggle('hidden', isDark));
+    }
+  </script>
+    <!-- Floating Theme Switcher Button (Styled like the navbar toggle) -->
 </body>
 </html>
-<!-- Build milestone 81/88: style: remove all directional arrows from buttons and CTAs -->
+<!-- Build milestone 82/88: feat: base64 inline project screenshots to ensure standalone portability -->
