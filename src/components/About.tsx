@@ -1,36 +1,33 @@
-'use client';
+import React from 'react';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export default function About() {
   return (
-    <section
-      id="about"
-      aria-label="About"
-      className="px-6 py-20 sm:px-14 sm:py-28 border-t border-[#e9e6df]/80 dark:border-white/10 bg-white/40 dark:bg-white/[0.02]"
-    >
+    <section id="about" aria-label="About" className="px-6 py-20 sm:px-14 sm:py-28 border-t border-[#e9e6df]/80 dark:border-white/10 bg-white/40 dark:bg-white/[0.02]">
       <div className="mx-auto max-w-[1400px]">
-        {/* Header */}
+        
         <div className="text-center mb-16">
-          <p className="hand text-[20px] text-[#ff595e]">the architecture philosophy</p>
-          <h2 className="font-poster text-[clamp(40px,6.5vw,78px)] uppercase tracking-[-0.01em] text-[#16110e] dark:text-white mt-1">
-            ABOUT FAHAD
+          <p className="hand text-[19px] text-[#ff595e] sm:text-[21px]">a little about me</p>
+          <h2 className="font-poster mx-auto mt-1.5 uppercase text-[clamp(40px,6.2vw,78px)] text-[#16110e] dark:text-white">
+            WHAT I DO
           </h2>
         </div>
 
-        {/* Figma Blueprint Frame: about.grid with Corner Handles */}
         <div className="relative mt-12 grid gap-5 lg:grid-cols-3 border border-dashed border-[#0d99ff]/50 rounded-2xl p-4 sm:p-6 bg-white/20 dark:bg-white/[0.02] backdrop-blur-sm">
+          
           <span className="absolute -top-3 left-6 inline-flex items-center gap-1 rounded bg-[#0d99ff] px-2 py-0.5 font-mono text-[10px] font-bold text-white uppercase tracking-wider shadow-sm">
             about.grid
           </span>
-          <span className="absolute -top-1.5 -left-1.5 size-3 rounded-[2px] border-2 border-[#0d99ff] bg-white dark:bg-[#12161f]" />
-          <span className="absolute -top-1.5 -right-1.5 size-3 rounded-[2px] border-2 border-[#0d99ff] bg-white dark:bg-[#12161f]" />
-          <span className="absolute -bottom-1.5 -right-1.5 size-3 rounded-[2px] border-2 border-[#0d99ff] bg-white dark:bg-[#12161f]" />
-          <span className="absolute -bottom-1.5 -left-1.5 size-3 rounded-[2px] border-2 border-[#0d99ff] bg-white dark:bg-[#12161f]" />
+          <span className="absolute -top-1.5 -left-1.5 size-3 rounded-[2px] border-2 border-[#0d99ff] bg-white"></span>
+          <span className="absolute -top-1.5 -right-1.5 size-3 rounded-[2px] border-2 border-[#0d99ff] bg-white"></span>
+          <span className="absolute -bottom-1.5 -right-1.5 size-3 rounded-[2px] border-2 border-[#0d99ff] bg-white"></span>
+          <span className="absolute -bottom-1.5 -left-1.5 size-3 rounded-[2px] border-2 border-[#0d99ff] bg-white"></span>
 
           {/* CARD 1: Large Statement Card with Fahad's Portrait (2 Cols, 2 Rows) */}
           <div className="lg:col-span-2 lg:row-span-2">
             <div className="relative grid h-full overflow-hidden rounded-[24px] border border-[#e9e6df] dark:border-white/10 bg-white dark:bg-[#12161f] shadow-sm lg:grid-cols-[1.12fr_0.88fr]">
+              
               {/* Left Statement Text */}
               <div className="flex flex-col p-8 sm:p-11 justify-between">
                 <div>
@@ -48,7 +45,7 @@ export default function About() {
                   <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-[#9c958d]">
                     <span>Full-Stack Software Engineer · SINCE 2021</span>
                     <span className="flex items-center gap-1.5 text-[#10b981] font-semibold">
-                      <i className="size-1.5 animate-blink rounded-full bg-[#10b981]" />
+                      <i className="size-1.5 animate-blink rounded-full bg-[#10b981]"></i>
                       AVAILABLE NOW
                     </span>
                   </p>
@@ -64,11 +61,13 @@ export default function About() {
                   width={600}
                   height={800}
                   loading="lazy"
+                  decoding="async"
                 />
                 <span className="absolute right-5 top-5 rounded bg-[#16110e]/60 px-2.5 py-1 font-mono text-[11px] text-white backdrop-blur border border-white/10">
                   statement.txt
                 </span>
               </div>
+
             </div>
           </div>
 
@@ -76,6 +75,7 @@ export default function About() {
           <div className="rounded-[24px] bg-[#16110e] dark:bg-[#0c0f14] text-white p-8 relative shadow-sm border border-black dark:border-white/15 flex flex-col justify-between">
             <span className="absolute right-7 top-7 font-mono text-xs text-[#9c958d]">metrics</span>
             <div className="mt-6 space-y-1">
+              
               <div className="flex items-end justify-between gap-4 py-4 border-b border-white/10">
                 <div className="text-[clamp(2rem,3.2vw,2.75rem)] font-poster tracking-tight text-white">
                   10,000<span className="text-[#ff595e]">+</span>
@@ -102,6 +102,7 @@ export default function About() {
                   Avg. response time
                 </div>
               </div>
+
             </div>
           </div>
 
@@ -109,44 +110,52 @@ export default function About() {
           <div className="rounded-[24px] bg-white dark:bg-[#12161f] border border-[#e9e6df] dark:border-white/10 p-8 relative shadow-sm flex flex-col justify-between">
             <span className="absolute right-7 top-7 font-mono text-xs text-[#9c958d]">capabilities</span>
             <div className="mt-8 flex flex-wrap gap-2.5">
-              {[
-                'Full-Stack Systems',
-                'Retail OS & POS',
-                'IoT Telemetry',
-                'Real-Time Streams',
-                'Distributed Cache',
-                'Hardware Edge Sync',
-              ].map((cap) => (
-                <span
-                  key={cap}
-                  className="rounded-full border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] px-4 py-2 text-[13.5px] text-[#5c554e] dark:text-zinc-300 hover:border-[#ff595e]/40 hover:text-[#ff595e] transition"
-                >
-                  {cap}
-                </span>
-              ))}
+              <span className="rounded-full border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] px-4 py-2 text-[13.5px] text-[#5c554e] dark:text-zinc-300 hover:border-[#ff595e]/40 hover:text-[#ff595e] transition">
+                Full-Stack Systems
+              </span>
+              <span className="rounded-full border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] px-4 py-2 text-[13.5px] text-[#5c554e] dark:text-zinc-300 hover:border-[#ff595e]/40 hover:text-[#ff595e] transition">
+                Retail OS & POS
+              </span>
+              <span className="rounded-full border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] px-4 py-2 text-[13.5px] text-[#5c554e] dark:text-zinc-300 hover:border-[#ff595e]/40 hover:text-[#ff595e] transition">
+                IoT Telemetry
+              </span>
+              <span className="rounded-full border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] px-4 py-2 text-[13.5px] text-[#5c554e] dark:text-zinc-300 hover:border-[#ff595e]/40 hover:text-[#ff595e] transition">
+                Real-Time Streams
+              </span>
+              <span className="rounded-full border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] px-4 py-2 text-[13.5px] text-[#5c554e] dark:text-zinc-300 hover:border-[#ff595e]/40 hover:text-[#ff595e] transition">
+                Distributed Cache
+              </span>
+              <span className="rounded-full border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] px-4 py-2 text-[13.5px] text-[#5c554e] dark:text-zinc-300 hover:border-[#ff595e]/40 hover:text-[#ff595e] transition">
+                Hardware Edge Sync
+              </span>
             </div>
           </div>
 
           {/* CARD 4: Running Now Live Stage Monitor */}
           <div className="rounded-[24px] bg-[#16110e] dark:bg-[#0c0f14] text-white p-8 relative shadow-sm border border-black dark:border-white/15 overflow-hidden flex flex-col justify-between">
             <span className="absolute right-7 top-7 font-mono text-xs text-[#9c958d]">running now</span>
-
+            
             <div className="mt-8 space-y-4">
-              {[
-                { name: 'ingest', color: '#ff595e' },
-                { name: 'route', color: '#1982c4' },
-                { name: 'cache', color: '#8ac926' },
-                { name: 'dispatch', color: '#ffca3a' },
-              ].map((stage) => (
-                <div key={stage.name} className="flex items-center gap-3">
-                  <i
-                    className="size-2 rounded-full animate-ping"
-                    style={{ backgroundColor: stage.color }}
-                  />
-                  <span className="font-mono text-[13px] text-slate-200">{stage.name}</span>
-                  <span className="ml-auto font-mono text-xs font-bold text-[#10b981]">ok</span>
-                </div>
-              ))}
+              <div className="flex items-center gap-3">
+                <i className="size-2 rounded-full bg-[#ff595e] animate-ping"></i>
+                <span className="font-mono text-[13px] text-slate-200">ingest</span>
+                <span className="ml-auto font-mono text-xs font-bold text-[#10b981]">ok</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <i className="size-2 rounded-full bg-[#1982c4] animate-ping"></i>
+                <span className="font-mono text-[13px] text-slate-200">route</span>
+                <span className="ml-auto font-mono text-xs font-bold text-[#10b981]">ok</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <i className="size-2 rounded-full bg-[#8ac926] animate-ping"></i>
+                <span className="font-mono text-[13px] text-slate-200">cache</span>
+                <span className="ml-auto font-mono text-xs font-bold text-[#10b981]">ok</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <i className="size-2 rounded-full bg-[#ffca3a] animate-ping"></i>
+                <span className="font-mono text-[13px] text-slate-200">dispatch</span>
+                <span className="ml-auto font-mono text-xs font-bold text-[#10b981]">ok</span>
+              </div>
             </div>
 
             <p className="font-mono text-[11px] text-[#9c958d] mt-6 border-t border-white/10 pt-4">
@@ -159,29 +168,23 @@ export default function About() {
             <span className="absolute right-7 top-7 font-mono text-xs text-[#9c958d]">stack</span>
             <div>
               <p className="font-mono text-xs font-bold text-[#ff595e]">Currently building in</p>
-              <h4 className="mt-2 text-[24px] font-poster uppercase text-[#16110e] dark:text-white">
-                Next.js &amp; Python
-              </h4>
-
+              <h4 className="mt-2 text-[24px] font-poster uppercase text-[#16110e] dark:text-white">Next.js &amp; Python</h4>
+              
               <div className="mt-4 flex flex-wrap gap-2 font-mono text-xs">
-                {['TypeScript', 'Fastify', 'PostgreSQL', 'Redis'].map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-lg border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] text-[#5c554e] dark:text-zinc-200 px-3 py-1.5 font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                <span className="rounded-lg border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] text-[#5c554e] dark:text-zinc-200 px-3 py-1.5 font-medium">TypeScript</span>
+                <span className="rounded-lg border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] text-[#5c554e] dark:text-zinc-200 px-3 py-1.5 font-medium">Fastify</span>
+                <span className="rounded-lg border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] text-[#5c554e] dark:text-zinc-200 px-3 py-1.5 font-medium">PostgreSQL</span>
+                <span className="rounded-lg border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] text-[#5c554e] dark:text-zinc-200 px-3 py-1.5 font-medium">Redis</span>
               </div>
             </div>
 
             {/* Animated equalizer bars */}
             <div className="mt-6 flex h-5 items-end gap-1 border-t border-[#e9e6df] dark:border-white/10 pt-4">
-              <i className="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-1" />
-              <i className="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-2" />
-              <i className="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-3" />
-              <i className="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-4" />
-              <i className="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-2" />
+              <i className="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-1"></i>
+              <i className="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-2"></i>
+              <i className="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-3"></i>
+              <i className="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-4"></i>
+              <i className="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-2"></i>
             </div>
           </div>
 
@@ -190,28 +193,34 @@ export default function About() {
             <span className="absolute right-7 top-7 font-mono text-xs text-[#9c958d]">certified</span>
             <div>
               <p className="font-mono text-xs font-bold text-[#10b981]">Verified credentials</p>
-
+              
               <div className="mt-4 space-y-2.5 text-xs text-[#16110e] dark:text-zinc-200 font-medium">
                 <div className="flex items-center gap-2">
                   <span className="text-[#10b981] font-bold">✓</span>
-                  <span>COMSATS University Islamabad · Campus Gold Medalist</span>
+                  <span>COMSATS BSCS · 3.94 / 4.00 CGPA</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[#10b981] font-bold">✓</span>
-                  <span>BS Computer Science · Class of 2024</span>
+                  <span>Campus Gold Medalist</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[#10b981] font-bold">✓</span>
-                  <span>Specialization in Distributed Systems & Networking</span>
+                  <span>Institute Bronze Medalist</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[#10b981] font-bold">✓</span>
+                  <span>Meta Professional Certifications</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#e9e6df] dark:border-white/10 font-mono text-[11px] text-[#9c958d]">
-              COMMITTED TO ENGINEERING RIGOR
-            </div>
+            <p className="font-mono text-[11px] text-[#9c958d] mt-6 border-t border-[#e9e6df] pt-4">
+              4+ years engineering production systems
+            </p>
           </div>
+
         </div>
+
       </div>
     </section>
   );

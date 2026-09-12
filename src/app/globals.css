@@ -19,28 +19,32 @@
   --live: #10b981;
 }
 
-.dark {
-  --canvas: #090c10;
+html.dark {
+  --canvas: #090b0e;
   --card: #12161f;
   --card-2: #181d28;
-  --ink: #f0ede8;
-  --ink-soft: #b0aaa0;
-  --ink-faint: #6c757d;
-  --line: rgba(255, 255, 255, 0.12);
-  --line-2: rgba(255, 255, 255, 0.07);
+  --ink: #f4f4f5;
+  --ink-soft: #a1a1aa;
+  --ink-faint: #71717a;
+  --line: #222733;
+  --line-2: #2d3444;
   --tool: #0d99ff;
-  --tool-soft: rgba(13, 153, 255, 0.15);
+  --tool-soft: #102238;
   --accent: #ff595e;
-  --accent-deep: #ff4045;
-  --accent-soft: rgba(255, 89, 94, 0.15);
+  --accent-deep: #e04449;
+  --accent-soft: #2a1618;
   --live: #10b981;
+}
+
+html.dark .bg-dots {
+  background-image: radial-gradient(#f4f4f5 0.75px, transparent 0.75px);
+  opacity: 0.12 !important;
 }
 
 body {
   background-color: var(--canvas);
   color: var(--ink);
   font-family: 'Bricolage Grotesque', sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .font-poster {
@@ -60,14 +64,9 @@ body {
   background-size: 24px 24px;
 }
 
-.dark .bg-dots {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 0.85px, transparent 0.85px);
-  background-size: 24px 24px;
-}
-
-/* Ambient drifting clouds */
+/* Ambient drifting pastel clouds */
 @keyframes cloudDrift {
-  0% { transform: translateX(-100%); }
+  0% { transform: translateX(-140%); }
   100% { transform: translateX(100vw); }
 }
 .animate-cloud-1 { animation: cloudDrift 75s linear infinite; }
@@ -107,19 +106,3 @@ body {
 .animate-eq-2 { animation: eqBar 0.9s ease-in-out infinite 0.2s; }
 .animate-eq-3 { animation: eqBar 1.3s ease-in-out infinite 0.4s; }
 .animate-eq-4 { animation: eqBar 1.0s ease-in-out infinite 0.1s; }
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #d9d4cb;
-  border-radius: 9999px;
-}
-.dark ::-webkit-scrollbar-thumb {
-  background: #2d3748;
-}

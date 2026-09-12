@@ -82,32 +82,50 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Fahad Khan',
-  alternateName: ['Fahad', 'Fahad Cowlar'],
-  jobTitle: 'Full-Stack Systems Engineer',
-  url: 'https://fadikhan51.github.io/portfolio/',
-  image: 'https://fadikhan51.github.io/portfolio/assets/fahad_profile.webp',
-  sameAs: [
-    'https://github.com/fadikhan51',
-    'https://www.linkedin.com/in/fahad-khan-13ab35249',
-  ],
-  alumniOf: {
-    '@type': 'EducationalOrganization',
-    name: 'COMSATS University Islamabad',
-    award: 'Campus Gold Medalist',
-  },
-  knowsAbout: [
-    'Full-Stack Software Engineering',
-    'High-Concurrency Systems',
-    'Real-Time IoT Telemetry',
-    'Distributed Systems',
-    'FastAPI',
-    'PostgreSQL',
-    'Redis',
-    'Next.js',
-    'Python',
-    'TypeScript',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: 'Fahad Khan',
+      alternateName: ['Fahad', 'Fahad Cowlar', 'Fahad Systems Engineer', 'Fahad Khan Engineer'],
+      url: `${siteUrl}/`,
+      image: `${siteUrl}/assets/fahad_profile.webp`,
+      jobTitle: 'Full-Stack Systems Engineer',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Independent Engineering Consultant',
+      },
+      sameAs: [
+        'https://github.com/fadikhan51',
+        'https://www.linkedin.com/in/fahad-khan-13ab35249',
+      ],
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'COMSATS University Islamabad',
+        award: 'Gold Medalist (BSCS 3.82 CGPA), Bronze Medalist',
+      },
+      knowsAbout: [
+        'Full Stack Development',
+        'Software Engineering',
+        'High-Concurrency Systems',
+        'IoT Telemetry',
+        'FastAPI',
+        'Next.js',
+        'PostgreSQL',
+        'Distributed Systems',
+        'Event-Driven Architecture',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: `${siteUrl}/`,
+      name: 'Fahad Khan Portfolio',
+      description: 'Official engineering portfolio of Fahad Khan',
+      publisher: {
+        '@id': `${siteUrl}/#person`,
+      },
+    },
   ],
 };
 
@@ -137,15 +155,17 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  if (scrollRestoration in history) {
-                    history.scrollRestoration = manual;
+                  if ('scrollRestoration' in history) {
+                    history.scrollRestoration = 'manual';
                   }
-                  window.scrollTo(0, 0);
-                  var theme = localStorage.getItem(theme);
-                  if (theme === dark) {
-                    document.documentElement.classList.add(dark);
+                  if (!window.location.hash) {
+                    window.scrollTo(0, 0);
+                  }
+                  var saved = localStorage.getItem('fahad_theme');
+                  if (saved === 'dark') {
+                    document.documentElement.classList.add('dark');
                   } else {
-                    document.documentElement.classList.remove(dark);
+                    document.documentElement.classList.remove('dark');
                   }
                 } catch(e) {}
               })();
@@ -153,7 +173,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="relative min-h-screen bg-[#fffefb] dark:bg-[#090c10] text-[#16110e] dark:text-[#f0ede8] transition-colors duration-300">
+      <body className="min-h-full flex flex-col text-[#16110e] dark:text-[#f4f4f5] bg-[#fffefb] dark:bg-[#090b0e] transition-colors duration-300 relative selection:bg-[#ff595e]/20 selection:text-[#ff595e]">
         {children}
       </body>
     </html>
