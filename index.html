@@ -1583,9 +1583,11 @@
       if (bar) bar.style.width = scrolled + '%';
       if (pill) {
         pill.innerText = scrolled + '%';
-        pill.style.left = `calc(${scrolled}% - 14px)`;
+        pill.style.left = 'calc(' + scrolled + '% - 14px)';
       }
-    });
+
+      updateActiveNavLink();
+    }, { passive: true });
 
         function initHeroParticleCanvas() {
       const container = document.getElementById('hero-title-container');
@@ -1825,11 +1827,89 @@
       document.addEventListener('DOMContentLoaded', () => {
         initHeroParticleCanvas();
         updateThemeIcons();
+        updateActiveNavLink();
       });
     } else {
       initHeroParticleCanvas();
       updateThemeIcons();
+      updateActiveNavLink();
     }
+
+    window.addEventListener('resize', updateActiveNavLink, { passive: true });
+
+    // Dynamic Active Section Scroll Spy for Top Navigation
+    function updateActiveNavLink() {
+      const sectionMap = [
+        { id: 'hero', href: '#hero' },
+        { id: 'work', href: '#work' },
+        { id: 'about', href: '#about' },
+        { id: 'services', href: '#services' },
+        { id: 'pipeline', href: '#pipeline' },
+        { id: 'clients', href: '#clients' },
+        { id: 'why', href: '#why' },
+        { id: 'next-steps', href: '#contact' },
+        { id: 'contact', href: '#contact' }
+      ];
+
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const viewportHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      let activeHref = '#hero';
+
+      if (scrollY + viewportHeight >= docHeight - 80) {
+        activeHref = '#contact';
+      } else {
+        const offset = 220;
+        for (let i = 0; i < sectionMap.length; i++) {
+          const el = document.getElementById(sectionMap[i].id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= offset) {
+              activeHref = sectionMap[i].href;
+            }
+          }
+        }
+      }
+
+      const nav = document.querySelector('nav');
+      if (!nav) return;
+      const links = nav.querySelectorAll('a[href^="#"]');
+
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        const isTarget = href === activeHref;
+        const isContact = href === '#contact';
+
+        if (isContact) {
+          if (isTarget) {
+            link.className = 'ml-1 whitespace-nowrap rounded-full bg-[#ff595e] px-4 sm:px-5 py-1.5 sm:py-2 font-semibold text-white transition-colors';
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.className = 'ml-1 whitespace-nowrap rounded-full bg-[#16110e] dark:bg-white px-4 sm:px-5 py-1.5 sm:py-2 font-semibold text-white dark:text-[#16110e] transition-colors hover:bg-[#ff595e] dark:hover:bg-[#ff595e] dark:hover:text-white';
+            link.removeAttribute('aria-current');
+          }
+        } else {
+          if (isTarget) {
+            link.className = 'whitespace-nowrap rounded-full px-2.5 sm:px-4 py-1.5 sm:py-2 bg-[#ffeef0] dark:bg-[#ff595e]/20 text-[#ff595e] font-semibold transition-colors';
+            link.setAttribute('aria-current', 'page');
+            try {
+              if (nav.scrollWidth > nav.clientWidth) {
+                const linkRect = link.getBoundingClientRect();
+                const navRect = nav.getBoundingClientRect();
+                if (linkRect.left < navRect.left || linkRect.right > navRect.right) {
+                  link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+                }
+              }
+            } catch(e) {}
+          } else {
+            link.className = 'whitespace-nowrap rounded-full px-2.5 sm:px-4 py-1.5 sm:py-2 text-[#5c554e] dark:text-zinc-400 hover:text-[#16110e] dark:hover:text-white transition-colors';
+            link.removeAttribute('aria-current');
+          }
+        }
+      });
+    }
+
 
     function toggleTheme() {
       const isDark = document.documentElement.classList.toggle('dark');
