@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fadikhan51.github.io/portfolio';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://fadikhan51.github.io/portfolio'),
+  metadataBase: new URL(siteUrl),
   title: 'Fahad Khan | Full-Stack Systems Engineer & COMSATS Gold Medalist',
   description:
     'Official portfolio of Fahad Khan (Fahad Cowlar). Full-Stack Systems Engineer and COMSATS Gold Medalist specializing in high-concurrency systems, real-time IoT kinematics telemetry (100k+ events/sec), Next.js, and distributed event-driven backends.',
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://fadikhan51.github.io/portfolio/',
+    canonical: `${siteUrl}/`,
   },
   icons: {
     icon: [
@@ -59,11 +60,11 @@ export const metadata: Metadata = {
     title: 'Fahad Khan | Full-Stack Systems Engineer',
     description:
       'Full-Stack Systems Engineer and COMSATS Gold Medalist. Building high-concurrency event-driven backends and real-time IoT telemetry pipelines.',
-    url: 'https://fadikhan51.github.io/portfolio/',
+    url: `${siteUrl}/`,
     siteName: 'Fahad Khan Portfolio',
     images: [
       {
-        url: `${basePath}/assets/fahad_profile.webp`,
+        url: `${siteUrl}/assets/fahad_profile.webp`,
         width: 600,
         height: 800,
         alt: 'Fahad Khan - Full-Stack Systems Engineer',
@@ -75,7 +76,7 @@ export const metadata: Metadata = {
     title: 'Fahad Khan | Full-Stack Systems Engineer',
     description:
       'Full-Stack Systems Engineer and COMSATS Gold Medalist. Building high-concurrency event-driven backends and real-time IoT telemetry pipelines.',
-    images: [`${basePath}/assets/fahad_profile.webp`],
+    images: [`${siteUrl}/assets/fahad_profile.webp`],
   },
 };
 
