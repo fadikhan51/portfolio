@@ -96,6 +96,14 @@
   <script>
     (function() {
       try {
+        // Enforce starting at top and disable browser scroll restoration
+        if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
+        }
+        if (!window.location.hash) {
+          window.scrollTo(0, 0);
+        }
+
         const saved = localStorage.getItem('fahad_theme');
         // Strictly default to light mode unless explicitly toggled to dark
         if (saved === 'dark') {
@@ -215,6 +223,12 @@
     .animate-eq-3 { animation: eqBar 1.3s ease-in-out infinite 0.4s; }
     .animate-eq-4 { animation: eqBar 1.0s ease-in-out infinite 0.1s; }
   </style>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="alternate icon" href="favicon.ico" />
 </head>
 <body class="min-h-full flex flex-col text-[#16110e] dark:text-[#f4f4f5] bg-[#fffefb] dark:bg-[#090b0e] transition-colors duration-300 relative selection:bg-[#ff595e]/20 selection:text-[#ff595e]">
 
@@ -1937,7 +1951,10 @@
 
       let activeHref = '#hero';
 
-      if (scrollY + viewportHeight >= docHeight - 80) {
+      // If user is near top of page, strictly keep Home active
+      if (scrollY < 120) {
+        activeHref = '#hero';
+      } else if (scrollY + viewportHeight >= docHeight - 60) {
         activeHref = '#contact';
       } else {
         const offset = 220;
@@ -1973,12 +1990,15 @@
           if (isTarget) {
             link.className = 'whitespace-nowrap rounded-full px-2.5 sm:px-4 py-1.5 sm:py-2 bg-[#ffeef0] dark:bg-[#ff595e]/20 text-[#ff595e] font-semibold transition-colors';
             link.setAttribute('aria-current', 'page');
+            // Safe horizontal navigation scroll that never scrolls the window
             try {
               if (nav.scrollWidth > nav.clientWidth) {
-                const linkRect = link.getBoundingClientRect();
-                const navRect = nav.getBoundingClientRect();
-                if (linkRect.left < navRect.left || linkRect.right > navRect.right) {
-                  link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+                const linkLeft = link.offsetLeft;
+                const linkWidth = link.offsetWidth;
+                const navScroll = nav.scrollLeft;
+                const navWidth = nav.clientWidth;
+                if (linkLeft < navScroll || linkLeft + linkWidth > navScroll + navWidth) {
+                  nav.scrollTo({ left: Math.max(0, linkLeft - 24), behavior: 'smooth' });
                 }
               }
             } catch(e) {}
@@ -1989,6 +2009,13 @@
         }
       });
     }
+
+    // Ensure clean initial scroll position on load
+    window.addEventListener('load', () => {
+      if (!window.location.hash || window.location.hash === '#hero') {
+        window.scrollTo(0, 0);
+      }
+    });
 
 
     function toggleTheme() {
