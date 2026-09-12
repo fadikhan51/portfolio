@@ -196,12 +196,13 @@
     /* Custom marquee */
     @keyframes marquee {
       0% { transform: translateX(0%); }
-      100% { transform: translateX(-50%); }
+      100% { transform: translateX(-100%); }
     }
     .animate-marquee {
-      display: flex;
-      width: 200%;
-      animation: marquee 25s linear infinite;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-container:hover .animate-marquee {
+      animation-play-state: paused;
     }
 
     /* Pulse animation */
@@ -851,16 +852,16 @@
               <p class="font-mono text-xs font-bold text-[#ff595e]">Currently building in</p>
               <h4 class="mt-2 text-[24px] font-poster uppercase text-[#16110e] dark:text-white">Next.js &amp; Python</h4>
               
-              <div class="mt-4 flex flex-wrap gap-2 font-mono text-xs text-[#5c554e] dark:text-zinc-300">
-                <span class="rounded-lg border border-[#e9e6df] bg-[#f7f6f1] px-3 py-1.5">TypeScript</span>
-                <span class="rounded-lg border border-[#e9e6df] bg-[#f7f6f1] px-3 py-1.5">Fastify</span>
-                <span class="rounded-lg border border-[#e9e6df] bg-[#f7f6f1] px-3 py-1.5">PostgreSQL</span>
-                <span class="rounded-lg border border-[#e9e6df] bg-[#f7f6f1] px-3 py-1.5">Redis</span>
+              <div class="mt-4 flex flex-wrap gap-2 font-mono text-xs">
+                <span class="rounded-lg border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] text-[#5c554e] dark:text-zinc-200 px-3 py-1.5 font-medium">TypeScript</span>
+                <span class="rounded-lg border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] text-[#5c554e] dark:text-zinc-200 px-3 py-1.5 font-medium">Fastify</span>
+                <span class="rounded-lg border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] text-[#5c554e] dark:text-zinc-200 px-3 py-1.5 font-medium">PostgreSQL</span>
+                <span class="rounded-lg border border-[#e9e6df] dark:border-white/10 bg-[#f7f6f1] dark:bg-[#181d28] text-[#5c554e] dark:text-zinc-200 px-3 py-1.5 font-medium">Redis</span>
               </div>
             </div>
 
             <!-- Animated equalizer bars -->
-            <div class="mt-6 flex h-5 items-end gap-1 border-t border-[#e9e6df] pt-4">
+            <div class="mt-6 flex h-5 items-end gap-1 border-t border-[#e9e6df] dark:border-white/10 pt-4">
               <i class="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-1"></i>
               <i class="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-2"></i>
               <i class="w-1.5 rounded-sm bg-[#ff595e] h-full animate-eq-3"></i>
@@ -1628,16 +1629,36 @@
 
     <section id="contact" class="relative pt-20 pb-16 px-4 sm:px-8 border-t border-[#e9e6df] dark:border-white/10 bg-[#16110e] dark:bg-[#06080a] text-white">
       
-      <div class="overflow-hidden whitespace-nowrap border-b border-white/10 pb-8 mb-16 text-xs font-mono text-[#9c958d]">
-        <div class="animate-marquee flex gap-8">
-          <span>FULL-STACK SOFTWARE ENGINEER</span><span>◆</span>
-          <span>HIGH-CONCURRENCY SYSTEMS</span><span>◆</span>
-          <span>REAL-TIME TELEMETRY</span><span>◆</span>
-          <span>AVAILABLE FOR COLLABORATION</span><span>◆</span>
-          <span>DISTRIBUTED ARCHITECTURE</span><span>◆</span>
-          <span>FULL-STACK SOFTWARE ENGINEER</span><span>◆</span>
-          <span>HIGH-CONCURRENCY SYSTEMS</span><span>◆</span>
-          <span>REAL-TIME TELEMETRY</span><span>◆</span>
+      <div class="marquee-container overflow-hidden whitespace-nowrap border-b border-white/10 pb-8 mb-16 text-xs font-mono text-[#9c958d]">
+        <div class="flex w-max">
+          <div class="flex shrink-0 items-center gap-8 pr-8 animate-marquee">
+            <span>FULL-STACK SOFTWARE ENGINEER</span><span>◆</span>
+            <span>HIGH-CONCURRENCY SYSTEMS</span><span>◆</span>
+            <span>REAL-TIME TELEMETRY</span><span>◆</span>
+            <span>AVAILABLE FOR COLLABORATION</span><span>◆</span>
+            <span>DISTRIBUTED ARCHITECTURE</span><span>◆</span>
+          </div>
+          <div class="flex shrink-0 items-center gap-8 pr-8 animate-marquee" aria-hidden="true">
+            <span>FULL-STACK SOFTWARE ENGINEER</span><span>◆</span>
+            <span>HIGH-CONCURRENCY SYSTEMS</span><span>◆</span>
+            <span>REAL-TIME TELEMETRY</span><span>◆</span>
+            <span>AVAILABLE FOR COLLABORATION</span><span>◆</span>
+            <span>DISTRIBUTED ARCHITECTURE</span><span>◆</span>
+          </div>
+          <div class="flex shrink-0 items-center gap-8 pr-8 animate-marquee" aria-hidden="true">
+            <span>FULL-STACK SOFTWARE ENGINEER</span><span>◆</span>
+            <span>HIGH-CONCURRENCY SYSTEMS</span><span>◆</span>
+            <span>REAL-TIME TELEMETRY</span><span>◆</span>
+            <span>AVAILABLE FOR COLLABORATION</span><span>◆</span>
+            <span>DISTRIBUTED ARCHITECTURE</span><span>◆</span>
+          </div>
+          <div class="flex shrink-0 items-center gap-8 pr-8 animate-marquee" aria-hidden="true">
+            <span>FULL-STACK SOFTWARE ENGINEER</span><span>◆</span>
+            <span>HIGH-CONCURRENCY SYSTEMS</span><span>◆</span>
+            <span>REAL-TIME TELEMETRY</span><span>◆</span>
+            <span>AVAILABLE FOR COLLABORATION</span><span>◆</span>
+            <span>DISTRIBUTED ARCHITECTURE</span><span>◆</span>
+          </div>
         </div>
       </div>
 
