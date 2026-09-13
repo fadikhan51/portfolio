@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fadikhan51.github.io/portfolio';
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fadikhan51.github.io/portfolio';
+const siteUrl = rawSiteUrl.includes(basePath) || !basePath
+  ? rawSiteUrl.replace(/\/$/, '')
+  : `${rawSiteUrl.replace(/\/$/, '')}${basePath}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
