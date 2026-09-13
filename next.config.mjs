@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const isGithubPages = process.env.GITHUB_PAGES === 'true';
-const basePath = isGithubPages ? '/portfolio' : (process.env.NEXT_PUBLIC_BASE_PATH || '');
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH !== undefined
+  ? process.env.NEXT_PUBLIC_BASE_PATH
+  : (isGithubPages ? '/portfolio' : '');
 
 const nextConfig = {
   output: 'export',
