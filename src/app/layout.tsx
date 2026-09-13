@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     locale: 'en_US',
-    type: 'profile',
+    type: 'website',
     title: 'Fahad Khan | Full-Stack Systems Engineer',
     description:
       'Full-Stack Systems Engineer and COMSATS Gold Medalist. Building high-concurrency event-driven backends and real-time IoT telemetry pipelines.',
@@ -64,10 +64,11 @@ export const metadata: Metadata = {
     siteName: 'Fahad Khan Portfolio',
     images: [
       {
-        url: `${siteUrl}/assets/fahad_profile.webp`,
-        width: 600,
-        height: 800,
-        alt: 'Fahad Khan - Full-Stack Systems Engineer',
+        url: `${siteUrl}/assets/linkedin_featured_light.png`,
+        width: 1200,
+        height: 630,
+        type: 'image/png',
+        alt: 'Fahad Khan - Full-Stack Systems Engineer Portfolio',
       },
     ],
   },
@@ -76,7 +77,7 @@ export const metadata: Metadata = {
     title: 'Fahad Khan | Full-Stack Systems Engineer',
     description:
       'Full-Stack Systems Engineer and COMSATS Gold Medalist. Building high-concurrency event-driven backends and real-time IoT telemetry pipelines.',
-    images: [`${siteUrl}/assets/fahad_profile.webp`],
+    images: [`${siteUrl}/assets/linkedin_featured_light.png`],
   },
 };
 
