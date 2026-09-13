@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://fadikhan51.github.io/portfolio/</loc>
+    <loc>https://fahadkhan.is-a.dev/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://fadikhan51.github.io/portfolio/assets/fahad_profile.webp</image:loc>
+      <image:loc>https://fahadkhan.is-a.dev/assets/fahad_profile.webp</image:loc>
       <image:title>Fahad Khan - Full-Stack Systems Engineer</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://fadikhan51.github.io/portfolio/assets/work_commercial_portal.webp</image:loc>
+      <image:loc>https://fahadkhan.is-a.dev/assets/work_commercial_portal.webp</image:loc>
       <image:title>Commercial Portal Dashboard - Enterprise Retail OS by Fahad Khan</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://fadikhan51.github.io/portfolio/assets/work_loyalty.webp</image:loc>
+      <image:loc>https://fahadkhan.is-a.dev/assets/work_loyalty.webp</image:loc>
       <image:title>Enterprise Loyalty and Rewards Platform by Fahad Khan</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://fadikhan51.github.io/portfolio/assets/work_vupop.webp</image:loc>
+      <image:loc>https://fahadkhan.is-a.dev/assets/work_vupop.webp</image:loc>
       <image:title>Vupop Sports Marketplace by Fahad Khan</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://fadikhan51.github.io/portfolio/assets/work_boxtech.webp</image:loc>
+      <image:loc>https://fahadkhan.is-a.dev/assets/work_boxtech.webp</image:loc>
       <image:title>Boxtech B2B Operations Suite by Fahad Khan</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://fadikhan51.github.io/portfolio/assets/work_traccar.webp</image:loc>
+      <image:loc>https://fahadkhan.is-a.dev/assets/work_traccar.webp</image:loc>
       <image:title>Real-Time IoT Telemetry and GPS Kinematics by Fahad Khan</image:title>
     </image:image>
   </url>
